@@ -2,7 +2,9 @@ import React from "react";
 
 // import Final from "../../../tutorials/react_advanced/src/tutorial/1-useState/final/5-useState-counter";
 // import Setup from "../../../tutorials/react_advanced/src/tutorial/2-useEffect/setup/1-useEffect-basics";
-import Setup from "../../../tutorials/react_advanced/src/tutorial/2-useEffect/setup/2-useEffect-cleanup";
+// import Setup from "../../../tutorials/react_advanced/src/tutorial/2-useEffect/setup/2-useEffect-cleanup";
+// import Final from "../../../tutorials/react_advanced/src/tutorial/2-useEffect/final/3-useEffect-fetch-data";
+import Setup from "../../../tutorials/react_advanced/src/tutorial/2-useEffect/setup/3-useEffect-fetch-data";
 
 function App() {
   return (
