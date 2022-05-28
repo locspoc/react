@@ -7,7 +7,9 @@ import React from "react";
 // import Setup from "../../../tutorials/react_advanced/src/tutorial/2-useEffect/setup/3-useEffect-fetch-data";
 // import Setup from "../../../tutorials/react_advanced/src/tutorial/3-conditional-rendering/setup/1-multiple-returns";
 // import Setup from "../../../tutorials/react_advanced/src/tutorial/3-conditional-rendering/setup/2-short-circuit";
-import Setup from "../../../tutorials/react_advanced/src/tutorial/3-conditional-rendering/setup/3-show-hide";
+// import Setup from "../../../tutorials/react_advanced/src/tutorial/3-conditional-rendering/setup/3-show-hide";
+// import Setup from "../../../tutorials/react_advanced/src/tutorial/4-forms/setup/1-controlled-inputs";
+import Setup from "../../../tutorials/react_advanced/src/tutorial/4-forms/setup/2-multiple-inputs";
 
 function App() {
 	return (
