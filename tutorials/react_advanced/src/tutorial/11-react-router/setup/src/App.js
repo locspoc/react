@@ -9,6 +9,7 @@ import SingleProduct from "./pages/SingleProduct";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import ProtectedRoute from "./pages/ProtectedRoute";
+import SharedProductAndLayout from "./pages/SharedProductAndLayout";
 
 function App() {
 	const [user, setUser] = useState(null);
@@ -18,11 +19,15 @@ function App() {
 				<Route path="/" element={<SharedLayout />}>
 					<Route index element={<Home />} />
 					<Route path="about" element={<About />} />
-					<Route path="products" element={<Products />} />
+					<Route path="products" element={<SharedProductAndLayout />}>
+						<Route index element={<Products />} />
+						<Route path=":productId" element={<SingleProduct />} />
+					</Route>
 					<Route
 						path="products/:productId"
 						element={<SingleProduct />}
 					/>
+
 					<Route
 						path="login"
 						element={<Login setUser={setUser}></Login>}
