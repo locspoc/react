@@ -8,7 +8,6 @@ import Error from "./pages/Error";
 function App() {
 	return (
 		<BrowserRouter>
-			<nav>our navbar</nav>
 			<Routes>
 				<Route path="/" element={<Home />}>
 					<Route path="about" element={<About />} />
