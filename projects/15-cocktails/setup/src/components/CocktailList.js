@@ -1,14 +1,28 @@
-import React from 'react'
-import Cocktail from './Cocktail'
-import Loading from './Loading'
-import { useGlobalContext } from '../context'
+import React from "react";
+import Cocktail from "./Cocktail";
+import Loading from "./Loading";
+import { useGlobalContext } from "../context";
 
 const CocktailList = () => {
-  return (
-    <div>
-      <h2>cocktail list component</h2>
-    </div>
-  )
-}
+	const { cocktails, loading } = useGlobalContext();
 
-export default CocktailList
+	if (loading) {
+		return <Loading />;
+	}
+	// console.log(cocktails);
+	if (cocktails.length < 1) {
+		console.log(cocktails);
+		return (
+			<h2 className="section-title">
+				no cocktails matched your search criteria
+			</h2>
+		);
+	}
+	return (
+		<div>
+			<h2>cocktail list</h2>
+		</div>
+	);
+};
+
+export default CocktailList;
