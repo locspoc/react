@@ -7,7 +7,7 @@ const url =
 const Movies = () => {
 	const { movies, isLoading } = useGlobalContext();
 
-	console.log("movies: ", movies);
+	// console.log("movies: ", movies);
 
 	if (isLoading) {
 		return <div className="loading"></div>;
@@ -24,14 +24,16 @@ const Movies = () => {
 				console.log(poster);
 				return (
 					<Link to={`/movies/${id}`} key={id} className="movie">
-						<img
-							src={poster === "N/A" ? url : poster}
-							alt={title}
-						/>
-						<div className="movie-info">
-							<h4 className="title">{title}</h4>
-							<p>{year}</p>
-						</div>
+						<article>
+							<img
+								src={poster === "N/A" ? url : poster}
+								alt={title}
+							/>
+							<div className="movie-info">
+								<h4 className="title">{title}</h4>
+								<p>{year}</p>
+							</div>
+						</article>
 					</Link>
 				);
 			})}
