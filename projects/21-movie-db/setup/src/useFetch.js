@@ -13,11 +13,12 @@ const useFetch = (urlParams) => {
 			const response = await fetch(url);
 			console.log("response: ", response);
 			const data = await response.json();
-			// console.log("data: ", data);
+			console.log("data: ", data);
 
 			if (data.Response === "True") {
-				setData(data.Search);
-				// console.log("data.Search: ", data.Search);
+				setData(data.Search || data);
+				console.log("data.Search: ", data.Search);
+				console.log("data: ", data);
 				setError({ show: false, msg: "" });
 			} else {
 				setError({ show: true, msg: data.Error });
@@ -33,7 +34,7 @@ const useFetch = (urlParams) => {
 		console.log("urlParams: ", urlParams);
 		fetchMovies(`${API_ENDPOINT}${urlParams}`);
 	}, [urlParams]);
-
+	console.log("data: ", data);
 	return { isLoading, error, data };
 };
 
