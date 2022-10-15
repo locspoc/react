@@ -34,7 +34,7 @@ const useFetch = (urlParams) => {
 		console.log("urlParams: ", urlParams);
 		fetchMovies(`${API_ENDPOINT}${urlParams}`);
 	}, [urlParams]);
-	console.log("data: ", data);
+	// console.log("data: ", data);
 	return { isLoading, error, data };
 };
 
