@@ -38,6 +38,10 @@ const AppProvider = ({ children }) => {
 		}
 	};
 
+	const removeStory = (id) => {
+		dispatch({ type: REMOVE_STORY, payload: id });
+	};
+
 	useEffect(() => {
 		fetchStories(`${API_ENDPOINT}query=${state.query}&page=${state.page}`);
 	}, []);
