@@ -20,8 +20,8 @@ const AppProvider = ({ children }) => {
 	const [waiting, setWaiting] = useState(true);
 	const [loading, setLoading] = useState(false);
 	const [questions, setQuestions] = useState([]);
-	const [index, setIndex] = useState([0]);
-	const [correct, setCorrect] = useState([0]);
+	const [index, setIndex] = useState(0);
+	const [correct, setCorrect] = useState(0);
 	const [error, setError] = useState(false);
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,6 +46,33 @@ const AppProvider = ({ children }) => {
 		}
 	};
 
+	const nextQuestion = () => {
+		setIndex((oldIndex) => {
+			// console.log("oldIndex[0]: ", oldIndex[0]);
+			// console.log("oldIndex[0]: ", typeof oldIndex[0]);
+			const index = oldIndex + 1;
+			// console.log("index: ", index);
+			// console.log("index: ", typeof index);
+			// console.log("index: ", parseInt(index));
+			// console.log("index: ", typeof parseInt(index));
+			// console.log("questions.length: ", questions.length);
+			// console.log("questions.length: ", typeof questions.length);
+			if (index > questions.length - 1) {
+				// openModal();
+				return 0;
+			} else {
+				return index;
+			}
+		});
+	};
+
+	const checkAnswer = (value) => {
+		if (value) {
+			setCorrect((oldState) => oldState + 1);
+		}
+		nextQuestion();
+	};
+
 	useEffect(() => {
 		fetchQuestions(tempUrl);
 	}, []);
@@ -60,6 +87,8 @@ const AppProvider = ({ children }) => {
 				correct,
 				error,
 				isModalOpen,
+				nextQuestion,
+				checkAnswer,
 			}}
 		>
 			{children}
