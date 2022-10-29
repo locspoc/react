@@ -58,7 +58,7 @@ const AppProvider = ({ children }) => {
 			// console.log("questions.length: ", questions.length);
 			// console.log("questions.length: ", typeof questions.length);
 			if (index > questions.length - 1) {
-				// openModal();
+				openModal();
 				return 0;
 			} else {
 				return index;
@@ -77,6 +77,16 @@ const AppProvider = ({ children }) => {
 		fetchQuestions(tempUrl);
 	}, []);
 
+	const openModal = () => {
+		setIsModalOpen(true);
+	};
+
+	const closeModal = () => {
+		setWaiting(true);
+		setCorrect(0);
+		setIsModalOpen(false);
+	};
+
 	return (
 		<AppContext.Provider
 			value={{
@@ -89,6 +99,7 @@ const AppProvider = ({ children }) => {
 				isModalOpen,
 				nextQuestion,
 				checkAnswer,
+				closeModal,
 			}}
 		>
 			{children}
